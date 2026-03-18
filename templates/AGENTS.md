@@ -20,6 +20,9 @@
 - Do not add new dependencies without clear justification
 - Do not change public behavior without updating tests and docs
 - Surface assumptions when local context is incomplete
+- Record significant session progress in `logs/session-log.md`
+- Prepend each new log entry so the newest session is always first
+- Use `YYYY-MM-DD HH:MM` as the header for each session entry
 
 ## Repository-Specific Guidance
 
@@ -40,14 +43,16 @@
 - Prefer editing existing files over introducing new abstractions
 - Keep configuration centralized when possible
 - Document any new entrypoints, scripts, or environment variables
+- Keep the work log in `logs/session-log.md` and update it during meaningful progress
 
 ## Preferred Workflow
 
 1. Inspect relevant files before proposing or applying changes.
 2. Identify the smallest coherent implementation.
 3. Edit the code and adjacent documentation together.
-4. Run validation steps.
-5. Report what changed, what was verified, and any residual risk.
+4. Update `logs/session-log.md` by prepending the session's significant progress.
+5. Run validation steps.
+6. Report what changed, what was verified, and any residual risk.
 
 ## Project Commands
 

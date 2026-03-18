@@ -44,6 +44,7 @@ Short description of what the project does and why it exists.
 
 ```text
 # Document the important folders and files here
+# Include logs/session-log.md for reverse-chronological session notes
 ```
 
 ## Working Agreements
@@ -52,6 +53,7 @@ Short description of what the project does and why it exists.
 - Definition of done
 - Code review expectations
 - How AI tools should be used in this repo
+- How significant session progress must be recorded in `logs/session-log.md`
 
 ## Conventions
 
@@ -59,6 +61,10 @@ Short description of what the project does and why it exists.
 - Formatting or linting rules
 - Error handling expectations
 - Logging or observability standards
+- Maintain a single log file at `logs/session-log.md`
+- Prepend each new session entry so the newest work is always first
+- Use `YYYY-MM-DD HH:MM` as the header for each log entry
+- Summarize all significant progress made during the session
 
 ## Deployment
 
