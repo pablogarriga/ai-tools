@@ -10,3 +10,5 @@ Each skill should live in its own folder and usually include:
 - Optional `references/` for focused supporting material
 
 Start from [template/SKILL.md](/Users/pablo/github/ai-tools/skills/template/SKILL.md) when creating a new skill.
+
+The bundled [repo-setup](/Users/pablo/github/ai-tools/skills/repo-setup/SKILL.md) skill is a concrete example for bootstrapping new repositories from this starter repo's conventions.
