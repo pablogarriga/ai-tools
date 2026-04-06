@@ -3,75 +3,75 @@
 ## Project Context
 
 - Project: `<project-name>`
-- Primary language(s): `<language-stack>`
-- Runtime(s): `<runtime>`
-- Goal: `<what the agent is helping build or maintain>`
+- Workflow: single-source research pipeline
+- Primary language(s): `<R / Python / Stata / mixed>`
+- Main entry point: `code/00_master.R`
+- Goal: `<what the agent is helping build, clean, estimate, or maintain>`
 
-## Agent Responsibilities
+## Repository Map
 
-- Make changes that move the project toward the stated goal
-- Prefer small, verifiable edits over broad speculative rewrites
-- Read existing code and docs before changing behavior
-- Preserve user-authored work unless explicitly asked to replace it
+- `code/` owns transformation logic.
+- `data/raw/` owns original inputs and should remain as close as possible to the source files.
+- `data/analysis/` owns cleaned and intermediate datasets reused across steps.
+- `output/` owns rebuildable analytical products, including figures and tables.
+- `logs/` owns workflow memory such as session notes, todo lists, lessons, handoffs, and verification records.
+- `skills/` stores optional repo-local skills for recurring agent tasks.
 
-## Working Rules
+## Working Rule
 
-- Do not make unrelated changes
-- Do not add new dependencies without clear justification
-- Do not change public behavior without updating tests and docs
-- Surface assumptions when local context is incomplete
-- Record significant session progress in `logs/session-log.md`
-- Prepend each new log entry so the newest session is always first
-- Use `YYYY-MM-DD HH:MM` as the header for each session entry
+Treat the repository as a pipeline:
 
-## Repository-Specific Guidance
+1. raw inputs enter through `data/raw/`
+2. cleaned or staged data are written to `data/analysis/`
+3. scripts in `code/` produce analytical outputs
+4. final figures and tables are written to `output/fig_tab/`
+5. work progress and decisions are recorded in `logs/`
 
-### Code Standards
+## Agent Priorities
 
-- Follow the existing style in the touched files
-- Keep functions focused and names explicit
-- Add comments only where the intent would otherwise be unclear
+- Optimize for reproducibility and clarity over speed.
+- Prefer small, verifiable edits over broad speculative rewrites.
+- Read the existing code and documentation before changing behavior.
+- Preserve user-authored work unless explicitly asked to replace it.
+- Keep the repository understandable for a human collaborator working without AI support.
 
-### Testing
+## Execution Conventions
 
-- Run the smallest relevant test scope first
-- Add or update tests when behavior changes
-- If tests cannot be run, state why
+- Use `code/00_master.R` as the default entry point unless the task clearly targets one isolated script.
+- Keep shared helper functions in `code/01_utils.R`.
+- Keep cleaning and harmonization logic in `code/02_clean.R`.
+- Keep final dataset construction, summary outputs, and figure/table inputs in `code/03_build.R`.
+- Do not overwrite raw source files in `data/raw/`.
+- Do not treat `output/` as source data.
+- Keep project documentation in `README.md` and workflow instructions in `AGENTS.md`.
+- Record significant session progress in `logs/session-log.md`. Add other files under `logs/` only when they clearly support the workflow.
 
-### File Handling
+## Editing Rules
 
-- Prefer editing existing files over introducing new abstractions
-- Keep configuration centralized when possible
-- Document any new entrypoints, scripts, or environment variables
-- Keep the work log in `logs/session-log.md` and update it during meaningful progress
+- Do not make unrelated changes.
+- Do not add new dependencies without clear justification.
+- Update nearby documentation when workflow, file structure, or public behavior changes.
+- Keep functions focused and names explicit.
+- Add comments only where the intent would otherwise be unclear.
 
-## Preferred Workflow
+## Validation
 
-1. Inspect relevant files before proposing or applying changes.
-2. Identify the smallest coherent implementation.
-3. Edit the code and adjacent documentation together.
-4. Update `logs/session-log.md` by prepending the session's significant progress.
-5. Run validation steps.
-6. Report what changed, what was verified, and any residual risk.
+- Run the smallest relevant validation step first.
+- Confirm that outputs land in the expected folders.
+- If a task changes behavior, update or add the relevant checks.
+- If validation cannot be run, state why and identify the residual risk.
 
-## Project Commands
+## Minimal Structure Rule
 
-```bash
-# Add repo-specific commands here
-# install:
-# dev:
-# test:
-# lint:
-```
+When adding or modifying files, preserve this separation:
+
+- inputs in `data/`
+- transformation logic in `code/`
+- rebuildable products in `output/`
+- workflow memory in `logs/`
 
 ## Known Constraints
 
-- `<technical constraint>`
-- `<product constraint>`
+- `<data access constraint>`
+- `<runtime constraint>`
 - `<operational constraint>`
-
-## Ownership Notes
-
-- Critical files or modules:
-- Areas that require extra care:
-- Areas safe for broad refactoring:
