@@ -12,7 +12,7 @@ Set up a repository with a lightweight, reusable working structure. Inspect the 
 ## Workflow
 
 1. Inspect the repository before editing anything.
-   Look for existing `README*`, `AGENTS.md`, `logs/`, `skills/`, top-level source folders, analysis folders, package manifests, notebooks, and project docs.
+   Look for existing `README*`, `AGENTS.md`, `.editorconfig`, `logs/`, `skills/`, top-level source folders, analysis folders, package manifests, notebooks, and project docs.
 
 2. Infer the repo's actual purpose from local evidence.
    Prefer the current codebase, documents, and folder names over assumptions. If the user references another repo as a model, treat that repo as a source of conventions unless they explicitly ask to copy directories verbatim.
@@ -21,6 +21,7 @@ Set up a repository with a lightweight, reusable working structure. Inspect the 
    Default scaffold:
    - root `README.md`
    - root `AGENTS.md`
+   - root `.editorconfig`
    - `logs/session-log.md`
    - `skills/README.md`
    - `skills/template/SKILL.md`
@@ -36,9 +37,10 @@ Set up a repository with a lightweight, reusable working structure. Inspect the 
    - workflow constraints
    - important directories
    - testing or validation expectations
+   - formatting conventions when they matter for day-to-day editing
 
 6. Preserve existing work.
-   If the repo already has a `README.md`, `AGENTS.md`, `logs/`, or `skills/`, update them carefully instead of overwriting them wholesale. Do not remove user-authored content without a clear reason.
+   If the repo already has a `README.md`, `AGENTS.md`, `.editorconfig`, `logs/`, or `skills/`, update them carefully instead of overwriting them wholesale. Do not remove user-authored content without a clear reason.
 
 7. Keep the scaffold lean.
    Do not add extra docs such as changelogs, installation guides, or copied template archives unless the user requested them.
@@ -72,6 +74,10 @@ Write agent instructions specific to the repo. Include:
 - repo-specific constraints
 
 Anchor the guidance in the current codebase instead of generic software-project language when the repo is research, data, or document heavy.
+
+### `.editorconfig`
+
+Create a lightweight root `.editorconfig` when the repo does not already have a stronger formatter-driven setup. At minimum, prefer spaces over tabs and make the intended indentation width explicit. If the repo already documents formatting conventions, keep `.editorconfig` aligned with them.
 
 ### `logs/session-log.md`
 

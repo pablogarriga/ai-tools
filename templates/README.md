@@ -15,6 +15,7 @@ This project is organized as a single-source research pipeline. Raw data enter t
 
 ```text
 project-name/
+├── .editorconfig
 ├── README.md
 ├── AGENTS.md
 ├── skills/
@@ -37,6 +38,7 @@ project-name/
 
 ## Folder and File Roles
 
+- `.editorconfig`: lightweight editor-level defaults for indentation, line endings, and trailing whitespace.
 - `README.md`: human-facing documentation for the project. It explains the research question, data source, workflow, structure, and run instructions.
 - `AGENTS.md`: AI-facing workflow instructions. It defines conventions, guardrails, logging rules, and how agents should operate in the repository.
 - `skills/`: optional reusable instructions for recurring AI-supported tasks. This supports the workflow but is not part of the analytical pipeline itself.
@@ -88,15 +90,13 @@ If the project does not use R, replace these commands with the actual entry poin
 - Keep raw data separate from cleaned data and from rebuildable outputs.
 - Document significant session progress in `logs/session-log.md`.
 - Update this file and `AGENTS.md` when the workflow or structure changes materially.
+- Keep `.editorconfig` aligned with any explicitly documented formatting rules.
 
 ## Conventions
 
 - Naming conventions: use lower case for file and folder names.
 - Naming conventions: use `-` as a space when two words are needed, for example `dom-rep`.
 - Naming conventions: use `_` to separate concepts within a file name, for example `dom-rep_2024.png`.
-- Formatting or linting rules: use spaces, not tabs.
-- Formatting or linting rules: indentation increases by 4 spaces per nesting level. First level: 4 spaces, second: 8, third: 12, and so on.
-- Formatting or linting rules: preserve existing style only in vendored, generated, or third-party files.
 
 ## Open Questions
 
