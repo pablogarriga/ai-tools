@@ -53,6 +53,9 @@ Treat the repository as a pipeline:
 - Update nearby documentation when workflow, file structure, or public behavior changes.
 - Keep functions focused and names explicit.
 - Add comments only where the intent would otherwise be unclear.
+- Use spaces, not tabs, for indentation.
+- Indentation should increase in steps of 4 spaces per nesting level: 4 for the first level, 8 for the second, 12 for the third, and so on.
+- Preserve existing formatting only in generated or third-party material that should not be hand-reformatted.
 
 ## Validation
 
