@@ -94,7 +94,9 @@ If the project does not use R, replace these commands with the actual entry poin
 - Naming conventions: use lower case for file and folder names.
 - Naming conventions: use `-` as a space when two words are needed, for example `dom-rep`.
 - Naming conventions: use `_` to separate concepts within a file name, for example `dom-rep_2024.png`.
-- Formatting or linting rules: use 4 spaces for indentation.
+- Formatting or linting rules: use spaces, not tabs.
+- Formatting or linting rules: indentation increases by 4 spaces per nesting level. First level: 4 spaces, second: 8, third: 12, and so on.
+- Formatting or linting rules: preserve existing style only in vendored, generated, or third-party files.
 
 ## Open Questions
 
