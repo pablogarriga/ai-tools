@@ -10,7 +10,7 @@
 
 ## Repository Map
 
-- `code/` owns transformation logic.
+- `code/` owns data preparation, estimation, and figure/table construction.
 - `data/raw/` owns original inputs and should remain as close as possible to the source files.
 - `data/analysis/` owns cleaned and intermediate datasets reused across steps.
 - `output/` owns rebuildable analytical products, including figures and tables.
@@ -19,13 +19,13 @@
 
 ## Working Rule
 
-Treat the repository as a pipeline:
+Treat the repository as an empirical workflow:
 
 1. raw inputs enter through `data/raw/`
-2. cleaned or staged data are written to `data/analysis/`
-3. scripts in `code/` produce analytical outputs
-4. final figures and tables are written to `output/fig_tab/`
-5. work progress and decisions are recorded in `logs/`
+2. cleaned or harmonized data are written to `data/analysis/`
+3. scripts in `code/` construct variables, estimate specifications, and generate figures/tables
+4. final outputs are written to `output/`
+5. progress, decisions, and checks are recorded in `logs/`
 
 ## Agent Priorities
 
@@ -35,11 +35,19 @@ Treat the repository as a pipeline:
 - Preserve user-authored work unless explicitly asked to replace it.
 - Keep the repository understandable for a human collaborator working without AI support.
 
+## Communication Style
+
+- Write like an empirical economist, not like a software engineer.
+- Use familiar research language: `harmonize`, `construct`, `reweight`, `benchmark`, `specification`, `sensitivity check`, `replication`, `figure`, and `table`.
+- Describe work in terms of data preparation, variable construction, estimation, and result comparison.
+- Avoid developer jargon when a simpler empirical term exists. Prefer `reorganize the weighting pipeline` over `refactor`, and `country-specific preparation do-file` over `country wrapper`.
+- Be precise about what changes in the empirical object, what identifying assumption is being used, and what the robustness comparison is testing.
+
 ## Execution Conventions
 
 - Use `code/00_master.R` as the default entry point unless the task clearly targets one isolated script.
 - Keep shared helper functions in `code/01_utils.R`.
-- Keep cleaning and harmonization logic in `code/02_clean.R`.
+- Keep data cleaning and harmonization logic in `code/02_clean.R`.
 - Keep final dataset construction, summary outputs, and figure/table inputs in `code/03_build.R`.
 - Do not overwrite raw source files in `data/raw/`.
 - Do not treat `output/` as source data.
