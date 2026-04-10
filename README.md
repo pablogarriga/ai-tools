@@ -29,6 +29,8 @@ A lightweight starter repository for new AI-assisted projects.
 └── templates
     ├── .editorconfig
     ├── AGENTS.md
+    ├── code
+    │   └── AGENTS.md
     ├── logs
     │   └── session-log.md
     └── README.md
@@ -38,10 +40,11 @@ A lightweight starter repository for new AI-assisted projects.
 
 1. Copy [templates/README.md](/Users/pablo/github/ai-tools/templates/README.md) into a new project and replace the placeholders.
 2. Copy [templates/AGENTS.md](/Users/pablo/github/ai-tools/templates/AGENTS.md) into the project root and tailor the operating rules to the repo.
-3. Copy [templates/.editorconfig](/Users/pablo/github/ai-tools/templates/.editorconfig) into the project root if you want the indentation and basic text-file conventions enforced by editors.
-4. Create `logs/session-log.md` using [templates/logs/session-log.md](/Users/pablo/github/ai-tools/templates/logs/session-log.md) and prepend a new entry for each work session.
-5. Duplicate [skills/template/SKILL.md](/Users/pablo/github/ai-tools/skills/template/SKILL.md) when you need a repeatable workflow for a specific task or toolchain.
-6. Use [skills/repo-setup/SKILL.md](/Users/pablo/github/ai-tools/skills/repo-setup/SKILL.md) when you want Codex to initialize a new repo from this starter structure and adapt it to the target codebase.
+3. Copy [templates/code/AGENTS.md](/Users/pablo/github/ai-tools/templates/code/AGENTS.md) into a nested `code/` folder when that subtree needs its own instructions.
+4. Copy [templates/.editorconfig](/Users/pablo/github/ai-tools/templates/.editorconfig) into the project root if you want the indentation and basic text-file conventions enforced by editors.
+5. Create `logs/session-log.md` using [templates/logs/session-log.md](/Users/pablo/github/ai-tools/templates/logs/session-log.md) and prepend a new entry for each work session.
+6. Duplicate [skills/template/SKILL.md](/Users/pablo/github/ai-tools/skills/template/SKILL.md) when you need a repeatable workflow for a specific task or toolchain.
+7. Use [skills/repo-setup/SKILL.md](/Users/pablo/github/ai-tools/skills/repo-setup/SKILL.md) when you want Codex to initialize a new repo from this starter structure and adapt it to the target codebase.
 
 ## Notes
 

@@ -18,15 +18,16 @@ project-name/
 ├── .editorconfig
 ├── README.md
 ├── AGENTS.md
-├── skills/
-│   ├── README.md
-│   └── template/
-│       └── SKILL.md
 ├── code/
+│   ├── AGENTS.md
 │   ├── 00_master.R
 │   ├── 01_utils.R
 │   ├── 02_clean.R
 │   └── 03_build.R
+├── skills/
+│   ├── README.md
+│   └── template/
+│       └── SKILL.md
 ├── data/
 │   ├── raw/
 │   └── analysis/
@@ -41,12 +42,13 @@ project-name/
 - `.editorconfig`: lightweight editor-level defaults for indentation, line endings, and trailing whitespace.
 - `README.md`: human-facing documentation for the project. It explains the research question, data source, workflow, structure, and run instructions.
 - `AGENTS.md`: AI-facing workflow instructions. It defines conventions, guardrails, logging rules, and how agents should operate in the repository.
-- `skills/`: optional reusable instructions for recurring AI-supported tasks. This supports the workflow but is not part of the analytical pipeline itself.
 - `code/`: the execution layer of the project.
 - `code/00_master.R`: the main entry point. It orchestrates the project in the intended order.
 - `code/01_utils.R`: shared helper functions used across scripts.
 - `code/02_clean.R`: reads the raw source files, cleans and harmonizes variables, applies restrictions, and writes reusable analysis-ready datasets.
 - `code/03_build.R`: builds final analytical outputs from the cleaned data, including summary measures and inputs for figures or tables.
+- `code/AGENTS.md`: nested AI-facing instructions for the code subtree. Use this when scripts in `code/` need tighter or different rules than the repository root.
+- `skills/`: optional reusable instructions for recurring AI-supported tasks. This supports the workflow but is not part of the analytical pipeline itself.
 - `data/raw/`: original source files. This folder should stay as close as possible to the source data.
 - `data/analysis/`: intermediate or cleaned datasets created from `data/raw/` and reused downstream.
 - `output/`: generated results that can be rebuilt from code.
@@ -90,6 +92,7 @@ If the project does not use R, replace these commands with the actual entry poin
 - Keep raw data separate from cleaned data and from rebuildable outputs.
 - Document significant session progress in `logs/session-log.md`.
 - Update this file and `AGENTS.md` when the workflow or structure changes materially.
+- Add nested `AGENTS.md` files in subdirectories when a narrower scope needs its own operating rules.
 - Keep `.editorconfig` aligned with any explicitly documented formatting rules.
 
 ## Conventions
