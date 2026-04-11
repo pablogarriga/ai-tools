@@ -11,7 +11,7 @@ Short description of the project, the question it answers, and why it exists.
 
 ## Repository Structure
 
-This project is organized as a single-source research pipeline. Raw data enter through `data/raw`, are cleaned into `data/analysis`, are processed by scripts in `code/`, generate final exhibits in `output/fig_tab`, and are documented operationally in `logs/`.
+This project is organized as a single-source research pipeline. Raw inputs enter through `data/raw/`, are cleaned into `data/analysis/`, are processed by scripts in `code/`, generate rebuildable outputs in `output/`, and are documented operationally in `logs/`.
 
 ```text
 project-name/
@@ -43,7 +43,7 @@ project-name/
 - `README.md`: human-facing documentation for the project. It explains the research question, data source, workflow, structure, and run instructions.
 - `AGENTS.md`: AI-facing workflow instructions. It defines conventions, guardrails, logging rules, and how agents should operate in the repository.
 - `code/`: the execution layer of the project.
-- `code/00_master.R`: the main entry point. It orchestrates the project in the intended order.
+- `code/00_master.R`: the main entry point. It orchestrates setup, paths, package loading, and execution order.
 - `code/01_utils.R`: shared helper functions used across scripts.
 - `code/02_clean.R`: reads the raw source files, cleans and harmonizes variables, applies restrictions, and writes reusable analysis-ready datasets.
 - `code/03_build.R`: builds final analytical outputs from the cleaned data, including summary measures and inputs for figures or tables.
@@ -94,6 +94,9 @@ If the project does not use R, replace these commands with the actual entry poin
 - Update this file and `AGENTS.md` when the workflow or structure changes materially.
 - Add nested `AGENTS.md` files in subdirectories when a narrower scope needs its own operating rules.
 - Keep `.editorconfig` aligned with any explicitly documented formatting rules.
+- Write the documentation as if the project is a real empirical workflow, not a generic scaffold.
+- Be explicit about provenance, weighting, restrictions, and validation when the project uses observational data.
+- Use language that reinforces reproducible research habits: clean separation of inputs, transformations, outputs, and workflow memory.
 
 ## Conventions
 
