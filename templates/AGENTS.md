@@ -41,6 +41,7 @@ Treat the repository as an empirical workflow:
 - Use familiar research language: `harmonize`, `construct`, `reweight`, `benchmark`, `specification`, `sensitivity check`, `replication`, `figure`, and `table`.
 - Describe work in terms of data preparation, variable construction, estimation, and result comparison.
 - Avoid developer jargon when a simpler empirical term exists. Prefer `reorganize the weighting pipeline` over `refactor`, and `country-specific preparation do-file` over `country wrapper`.
+- Be concise and direct in all your messages.
 - Be precise about what changes in the empirical object, what identifying assumption is being used, and what the robustness comparison is testing.
 
 ## Execution Conventions
