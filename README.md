@@ -8,28 +8,33 @@ A lightweight starter repository for new AI-assisted projects.
 - A personal root `AGENTS` template for defining machine-level or account-level working preferences
 - A repository root `AGENTS` template for defining how AI agents should operate in a codebase
 - A nested `AGENTS` template for subdirectories that need narrower instructions than the repo root
-- A starter `.editorconfig` for spaces-only, 4-space indentation and basic text-file defaults
-- A reusable `SKILL` template for specialized agent workflows
 - A `project-setup` skill for organizing a repository around its analytical workflow without copying auxiliary template folders verbatim
+- A `filing-harmonizer` skill for building or auditing comparable filing-based panels across years and regimes
 
 ## Structure
 
 ```text
 .
-├── .editorconfig
-├── logs
-│   └── session-log.md
 ├── README.md
 ├── skills
 │   ├── README.md
+│   ├── filing-harmonizer
+│   │   ├── agents
+│   │   │   └── openai.yaml
+│   │   ├── references
+│   │   │   ├── audit-checklist.md
+│   │   │   ├── diagnostics.md
+│   │   │   └── source-recovery.md
+│   │   └── SKILL.md
 │   ├── project-setup
 │   │   ├── agents
 │   │   │   └── openai.yaml
+│   │   ├── references
+│   │   │   ├── r-master-script.md
+│   │   │   ├── script-structure.md
+│   │   │   └── stata-master-dofile.md
 │   │   └── SKILL.md
-│   └── template
-│       └── SKILL.md
 └── templates
-    ├── .editorconfig
     ├── AGENTS.md
     ├── code
     │   └── AGENTS.md
@@ -52,15 +57,12 @@ A lightweight starter repository for new AI-assisted projects.
 2. Copy [templates/README.md](/Users/pablo/github/ai-tools/templates/README.md) into a new project and replace the placeholders.
 3. Copy [templates/AGENTS.md](/Users/pablo/github/ai-tools/templates/AGENTS.md) into the project root and tailor the operating rules to the repo.
 4. Copy [templates/code/AGENTS.md](/Users/pablo/github/ai-tools/templates/code/AGENTS.md) into a nested `code/` folder when that subtree needs its own instructions.
-5. Copy [templates/.editorconfig](/Users/pablo/github/ai-tools/templates/.editorconfig) into the project root if you want the indentation and basic text-file conventions enforced by editors.
-6. Create `logs/session-log.md` using [templates/logs/session-log.md](/Users/pablo/github/ai-tools/templates/logs/session-log.md) and prepend a new entry for each work session.
-7. Duplicate [skills/template/SKILL.md](/Users/pablo/github/ai-tools/skills/template/SKILL.md) when you need a repeatable workflow for a specific task or toolchain.
-8. Use [skills/project-setup/SKILL.md](/Users/pablo/github/ai-tools/skills/project-setup/SKILL.md) when you want Codex to structure a repo around its folder layout, analytical pipeline, README, AGENTS.md, and logs.
+5. Create `logs/session-log.md` in a target project using [templates/logs/session-log.md](/Users/pablo/github/ai-tools/templates/logs/session-log.md) and prepend a new entry for each work session.
+6. Use [skills/project-setup/SKILL.md](/Users/pablo/github/ai-tools/skills/project-setup/SKILL.md) when you want Codex to structure a repo around its folder layout, analytical pipeline, README, AGENTS.md, and logs.
+7. Use [skills/filing-harmonizer/SKILL.md](/Users/pablo/github/ai-tools/skills/filing-harmonizer/SKILL.md) when you want Codex to recover source meaning, harmonize filing concepts, and audit comparable firm-year variables.
 
 ## Notes
 
 These templates are intentionally minimal. They are meant to be edited heavily so each new project gets clear documentation, explicit agent behavior, and task-specific skills from the start.
-
-The `.editorconfig` is meant to complement, not replace, language-specific formatters when a project already has stronger tooling.
 
 The personal root `AGENTS.md` template was informed in part by [Claude Blattman's `claude.md` toolkit](https://claudeblattman.com/toolkit/claude-md/).

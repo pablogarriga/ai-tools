@@ -15,7 +15,6 @@ This project is organized as a single-source research pipeline. Raw inputs enter
 
 ```text
 project-name/
-├── .editorconfig
 ├── README.md
 ├── AGENTS.md
 ├── code/
@@ -24,10 +23,6 @@ project-name/
 │   ├── 01_utils.R
 │   ├── 02_clean.R
 │   └── 03_build.R
-├── skills/
-│   ├── README.md
-│   └── template/
-│       └── SKILL.md
 ├── data/
 │   ├── raw/
 │   └── analysis/
@@ -39,7 +34,6 @@ project-name/
 
 ## Folder and File Roles
 
-- `.editorconfig`: lightweight editor-level defaults for indentation, line endings, and trailing whitespace.
 - `README.md`: human-facing documentation for the project. It explains the research question, data source, workflow, structure, and run instructions.
 - `AGENTS.md`: AI-facing workflow instructions. It defines conventions, guardrails, logging rules, and how agents should operate in the repository.
 - `code/`: the execution layer of the project.
@@ -48,7 +42,6 @@ project-name/
 - `code/02_clean.R`: reads the raw source files, cleans and harmonizes variables, applies restrictions, and writes reusable analysis-ready datasets.
 - `code/03_build.R`: builds final analytical outputs from the cleaned data, including summary measures and inputs for figures or tables.
 - `code/AGENTS.md`: nested AI-facing instructions for the code subtree. Use this when scripts in `code/` need tighter or different rules than the repository root.
-- `skills/`: optional reusable instructions for recurring AI-supported tasks. This supports the workflow but is not part of the analytical pipeline itself.
 - `data/raw/`: original source files. This folder should stay as close as possible to the source data.
 - `data/analysis/`: intermediate or cleaned datasets created from `data/raw/` and reused downstream.
 - `output/`: generated results that can be rebuilt from code.
@@ -93,7 +86,6 @@ If the project does not use R, replace these commands with the actual entry poin
 - Document significant session progress in `logs/session-log.md`.
 - Update this file and `AGENTS.md` when the workflow or structure changes materially.
 - Add nested `AGENTS.md` files in subdirectories when a narrower scope needs its own operating rules.
-- Keep `.editorconfig` aligned with any explicitly documented formatting rules.
 - Write the documentation as if the project is a real empirical workflow, not a generic scaffold.
 - Be explicit about provenance, weighting, restrictions, and validation when the project uses observational data.
 - Use language that reinforces reproducible research habits: clean separation of inputs, transformations, outputs, and workflow memory.
