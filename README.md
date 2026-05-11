@@ -10,7 +10,7 @@ A lightweight starter repository for new AI-assisted projects.
 - A nested `AGENTS` template for subdirectories that need narrower instructions than the repo root
 - A starter `.editorconfig` for spaces-only, 4-space indentation and basic text-file defaults
 - A reusable `SKILL` template for specialized agent workflows
-- A `repo-setup` skill for bootstrapping a new repo from these conventions without copying auxiliary template folders verbatim
+- A `project-setup` skill for organizing a repository around its analytical workflow without copying auxiliary template folders verbatim
 
 ## Structure
 
@@ -22,7 +22,7 @@ A lightweight starter repository for new AI-assisted projects.
 ├── README.md
 ├── skills
 │   ├── README.md
-│   ├── repo-setup
+│   ├── project-setup
 │   │   ├── agents
 │   │   │   └── openai.yaml
 │   │   └── SKILL.md
@@ -55,7 +55,7 @@ A lightweight starter repository for new AI-assisted projects.
 5. Copy [templates/.editorconfig](/Users/pablo/github/ai-tools/templates/.editorconfig) into the project root if you want the indentation and basic text-file conventions enforced by editors.
 6. Create `logs/session-log.md` using [templates/logs/session-log.md](/Users/pablo/github/ai-tools/templates/logs/session-log.md) and prepend a new entry for each work session.
 7. Duplicate [skills/template/SKILL.md](/Users/pablo/github/ai-tools/skills/template/SKILL.md) when you need a repeatable workflow for a specific task or toolchain.
-8. Use [skills/repo-setup/SKILL.md](/Users/pablo/github/ai-tools/skills/repo-setup/SKILL.md) when you want Codex to initialize a new repo from this starter structure and adapt it to the target codebase.
+8. Use [skills/project-setup/SKILL.md](/Users/pablo/github/ai-tools/skills/project-setup/SKILL.md) when you want Codex to structure a repo around its folder layout, analytical pipeline, README, AGENTS.md, and logs.
 
 ## Notes
 

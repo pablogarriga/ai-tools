@@ -1,0 +1,4 @@
+interface:
+  display_name: "Project Setup"
+  short_description: "Structure a repo around its analytical workflow"
+  default_prompt: "Use $project-setup to organize this repository around its folder structure, code pipeline, README, AGENTS.md, and logs."

@@ -1,9 +1,9 @@
 ---
-name: repo-setup
+name: project-setup
 description: Structure new or lightly organized repositories around a clear analytical workflow. Use when a user wants to initialize or reorganize a repo's folder structure, code pipeline, README.md, AGENTS.md, or logs for empirical research, data analysis, writing projects, or mixed analytical work. Also use when a user wants to apply conventions from a starter repo without blindly copying template folders or unrelated auxiliary files.
 ---
 
-# Repo Setup
+# Project Setup
 
 ## Overview
 

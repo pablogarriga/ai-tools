@@ -1,4 +1,0 @@
-interface:
-  display_name: "Repo Setup"
-  short_description: "Structure a repo around its analytical workflow"
-  default_prompt: "Use $repo-setup to organize this repository around its folder structure, code pipeline, README, AGENTS.md, and logs."
