@@ -1,0 +1,4 @@
+interface:
+  display_name: "Filing Harmonizer"
+  short_description: "Build comparable firm-year panels from filings"
+  default_prompt: "Use $filing-harmonizer to construct or audit a comparable firm-year panel from tax forms, balance sheets, or related filing data across years and regimes."
