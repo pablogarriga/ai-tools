@@ -1,101 +1,120 @@
 ---
 name: repo-setup
-description: Bootstrap a new or lightly structured repository with standard project docs and working conventions. Use when a user wants to initialize repo structure, add a root README, add AGENTS.md, add logs/session-log.md, add a repo-local skills scaffold, or apply an existing starter repo's conventions without blindly copying its auxiliary template folders.
+description: Structure new or lightly organized repositories around a clear analytical workflow. Use when a user wants to initialize or reorganize a repo's folder structure, code pipeline, README.md, AGENTS.md, or logs for empirical research, data analysis, writing projects, or mixed analytical work. Also use when a user wants to apply conventions from a starter repo without blindly copying template folders or unrelated auxiliary files.
 ---
 
 # Repo Setup
 
 ## Overview
 
-Set up a repository with a lightweight, reusable working structure. Inspect the existing repo first, then adapt the scaffold to the actual project instead of dropping in generic placeholders unchanged.
+Shape the repository around the work it is meant to produce. Treat documentation as support for the workflow, not as the main deliverable. Start by reconstructing the empirical or analytical pipeline from the files that already exist, then make the smallest structural changes that make the pipeline easier to inspect, rerun, and maintain.
 
 ## Workflow
 
 1. Inspect the repository before editing anything.
-   Look for existing `README*`, `AGENTS.md`, `.editorconfig`, `logs/`, `skills/`, top-level source folders, analysis folders, package manifests, notebooks, and project docs.
+   Look for raw data folders, processed data, code, output tables, figures, manuscripts, slides, logs, and project notes. Check `git status` so existing work is not overwritten or moved accidentally.
 
-2. Infer the repo's actual purpose from local evidence.
-   Prefer the current codebase, documents, and folder names over assumptions. If the user references another repo as a model, treat that repo as a source of conventions unless they explicitly ask to copy directories verbatim.
+2. Infer the project object and pipeline.
+   Identify, as far as the repo allows:
+   - the question, dataset, or product the repo is organized around
+   - the main inputs and outputs
+   - the order in which data are prepared, variables are constructed, estimates are produced, and results are exported
+   - the scripts or documents that act as entry points
+   - any unclear or missing steps in the workflow
 
-3. Propose or apply the minimum scaffold that belongs in the current repo.
-   Default scaffold:
+3. Design the folder structure around the pipeline.
+   Prefer a simple structure that separates inputs, code, outputs, writing, and project records. A typical analytical repo may use:
+   - `data/raw/` for source data that should not be modified manually
+   - `data/processed/` or `data/derived/` for constructed analysis files
+   - `code/`, `scripts/`, or language-specific folders for reproducible code
+   - `output/`, `results/`, `figures/`, or `tables/` for generated objects
+   - `writing/`, `paper/`, `slides/`, or `docs/` for narrative outputs
+   - `logs/session-log.md` for dated work records
+
+   Use the names already present in the repo when they are coherent. Do not rename or move large sets of files unless the user asked for a reorganization and the move is low risk.
+
+4. Get the code pipeline right.
+   Prefer a readable top-level orchestration path over scattered one-off scripts. When appropriate, create or update an entry-point script such as `run_all.*`, `main.*`, or a root-level README section that records execution order. Make the sequence explicit:
+   - setup and paths
+   - data import or cleaning
+   - variable construction
+   - estimation, analysis, or transformation
+   - result export
+   - manuscript, deck, or report build steps
+
+   Do not invent commands that are not supported by the repo. If execution is uncertain, document the uncertainty plainly and leave a short verification note.
+
+   Before creating or revising scripts, read `references/script-structure.md` and apply the parts that fit the repo's language and workflow.
+
+   For Stata repos, read `references/stata-master-dofile.md` before creating or revising a master do-file. Use it as a pattern for `01_master.do` or the repo's equivalent top-level pipeline script.
+
+   For R repos, read `references/r-master-script.md` before creating or revising a master script. Use it as a pattern for `01_master.R`, `run_all.R`, or the repo's equivalent top-level pipeline script.
+
+   If the repo has multiple valid pipeline layers, such as raw-data construction plus downstream analysis, deck, or reporting workflows, do not force them into one master script. Make the primary pipeline and secondary pipelines explicit, document how they hand off, and keep each layer's entry point readable.
+
+5. Add or update only the default support files that belong.
+   Default support files:
    - root `README.md`
    - root `AGENTS.md`
-   - root `.editorconfig`
    - `logs/session-log.md`
-   - `skills/README.md`
-   - `skills/template/SKILL.md`
 
-4. Do not import auxiliary template repositories literally unless the user asks for that.
-   In particular, if the reference repo contains a `templates/` folder, use it as source material for writing the current repo's real files. Do not copy the `templates/` folder into the target repo unless the user explicitly requests it.
+6. Adapt every file to the actual repo.
+   Replace placeholders with project-specific content:
+   - project purpose or empirical object
+   - directory map
+   - pipeline order and entry points
+   - important data and output locations
+   - run commands, if known
+   - validation expectations
+   - open questions or missing setup details
 
-5. Adapt every file to the current repo.
-   Replace placeholders with repo-specific content:
-   - project purpose
-   - language/tooling stack
-   - relevant run commands
-   - workflow constraints
-   - important directories
-   - testing or validation expectations
-   - formatting conventions when they matter for day-to-day editing
-
-6. Preserve existing work.
-   If the repo already has a `README.md`, `AGENTS.md`, `.editorconfig`, `logs/`, or `skills/`, update them carefully instead of overwriting them wholesale. Do not remove user-authored content without a clear reason.
-
-7. Keep the scaffold lean.
-   Do not add extra docs such as changelogs, installation guides, or copied template archives unless the user requested them.
+7. Preserve existing work.
+   If `README.md`, `AGENTS.md`, `logs/`, code folders, or output folders already exist, update them carefully instead of overwriting them wholesale. Do not remove user-authored content without a clear reason. Ask before broad file moves, destructive cleanup, or hard-to-reverse restructuring.
 
 8. Validate the result.
    Check that:
-   - the created files match the repo's actual contents
-   - no unintended directories from the starter repo were imported
-   - `git status` shows only the intended additions or edits
+   - the folder structure reflects the actual pipeline
+   - README.md instructions match the files and commands that exist
+   - AGENTS.md gives repo-specific guidance
+   - no unwanted scaffolding was added
+   - `git status` shows only intended additions, edits, or moves
 
 ## File Guidance
 
 ### `README.md`
 
-Write a concise project-level README that explains:
+Write a concise project README that makes the workflow inspectable. Include:
 - what the repo is for
-- the main workflow or outputs
-- the important directories
-- how to run or work in the repo, if known
-- key constraints or open questions
-
-If commands are unclear, state that setup is partial rather than inventing a full install flow.
+- the main inputs and outputs
+- the directory structure
+- the pipeline order
+- how to rerun the work, if known
+- setup gaps or unresolved questions
 
 ### `AGENTS.md`
 
-Write agent instructions specific to the repo. Include:
+Write repo-specific instructions for future agents. Include:
 - project context
-- what agents should optimize for
-- rules for safe edits
-- how to validate changes
-- repo-specific constraints
-
-Anchor the guidance in the current codebase instead of generic software-project language when the repo is research, data, or document heavy.
-
-### `.editorconfig`
-
-Create a lightweight root `.editorconfig` when the repo does not already have a stronger formatter-driven setup. At minimum, prefer spaces over tabs and make the intended indentation width explicit. If the repo already documents formatting conventions, keep `.editorconfig` aligned with them.
+- how the pipeline is organized
+- where raw data, constructed data, code, results, writing, and logs live
+- rules for preserving user work
+- how to validate analytical changes
+- naming, style, or language conventions visible in the repo
 
 ### `logs/session-log.md`
 
-Create one reverse-chronological session log. Prepend the newest entry first. Use `YYYY-MM-DD HH:MM` headings and concise bullets.
+Create one reverse-chronological session log when no log exists. Prepend the newest entry first. Use `YYYY-MM-DD HH:MM` headings and concise bullets that record what changed, what was checked, and what remains unresolved.
 
-### `skills/`
+## Starter Repos
 
-Create a minimal repo-local skills scaffold only:
-- `skills/README.md`
-- `skills/template/SKILL.md`
-
-Do not populate extra repo-local skills unless the user asks for them.
+When the user references another repo as a model, treat it as a source of conventions. Borrow structure, naming, and documentation patterns only when they fit the current repo's workflow.
 
 ## Output Expectations
 
-After bootstrapping, report:
-- which files were added or updated
-- which starter-repo conventions were adopted
-- which things were intentionally not copied
-- any validation performed
-- any unresolved repo-specific gaps
+After setup or reorganization, report:
+- which folders or files were added, updated, or moved
+- how the pipeline is now organized
+- which conventions from any starter repo were adopted
+- which things were intentionally not copied or created
+- what validation was performed
+- what remains uncertain or needs user judgment

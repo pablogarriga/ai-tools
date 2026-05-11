@@ -1,4 +1,4 @@
 interface:
   display_name: "Repo Setup"
-  short_description: "Set up a repo with standard docs"
-  default_prompt: "Use $repo-setup to set up this repository with standard docs, logs, and skills scaffolding adapted to the current codebase."
+  short_description: "Structure a repo around its analytical workflow"
+  default_prompt: "Use $repo-setup to organize this repository around its folder structure, code pipeline, README, AGENTS.md, and logs."
