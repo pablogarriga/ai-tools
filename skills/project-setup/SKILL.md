@@ -44,11 +44,17 @@ Shape the repository around the work it is meant to produce. Treat documentation
 
    Do not invent commands that are not supported by the repo. If execution is uncertain, document the uncertainty plainly and leave a short verification note.
 
+   Treat the master script or master do-file as the visible control panel for the pipeline. It should own package loading, environment setup, stable paths, run switches, stable file locations, and execution order. Child scripts should assume that setup has already happened and should focus on one analytical task, such as importing a source, constructing variables, estimating results, validating outputs, or exporting tables and figures.
+
+   Do not make every child script a mini-master. Avoid repeated setup blocks, fallback path definitions, package loading, routine folder creation, and hidden run-routing in child scripts unless the repo explicitly needs standalone execution. Keep local empirical choices, such as samples, year windows, classifications, or model definitions, near the code that uses them. Keep input existence checks in the child script that consumes the input, because those checks protect the empirical pipeline rather than configure it.
+
    Before creating or revising scripts, read `references/script-structure.md` and apply the parts that fit the repo's language and workflow.
 
    For Stata repos, read `references/stata-master-dofile.md` before creating or revising a master do-file. Use it as a pattern for `01_master.do` or the repo's equivalent top-level pipeline script.
 
    For R repos, read `references/r-master-script.md` before creating or revising a master script. Use it as a pattern for `01_master.R`, `run_all.R`, or the repo's equivalent top-level pipeline script.
+
+   For Python repos, read `references/python-master-script.md` before creating or revising a master script. Use it as a pattern for `main.py`, `run_all.py`, or the repo's equivalent top-level pipeline script.
 
    If the repo has multiple valid pipeline layers, such as raw-data construction plus downstream analysis, deck, or reporting workflows, do not force them into one master script. Make the primary pipeline and secondary pipelines explicit, document how they hand off, and keep each layer's entry point readable.
 
@@ -88,6 +94,7 @@ Write a concise project README that makes the workflow inspectable. Include:
 - the main inputs and outputs
 - the directory structure
 - the pipeline order
+- whether child scripts should be run through the master script or only after loading master setup
 - how to rerun the work, if known
 - setup gaps or unresolved questions
 
@@ -96,6 +103,7 @@ Write a concise project README that makes the workflow inspectable. Include:
 Write repo-specific instructions for future agents. Include:
 - project context
 - how the pipeline is organized
+- what belongs in the master script versus child scripts
 - where raw data, constructed data, code, results, writing, and logs live
 - rules for preserving user work
 - how to validate analytical changes

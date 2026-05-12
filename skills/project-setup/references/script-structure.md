@@ -9,7 +9,8 @@ Use this reference when creating or reorganizing scripts in analytical repos, re
 - Keep helper functions lightweight and near the top of the script when they are only relevant to that script.
 - Do not introduce a helper merely to avoid a few repeated lines if it hides a substantive operation.
 - Introduce relevant code blocks with a short comment explaining what the block is doing.
-- Keep child scripts single-purpose and easy to rerun independently.
+- Keep child scripts single-purpose and easy to rerun after the master setup has established packages, paths, switches, and shared file locations.
+- Do not duplicate project setup, fallback path logic, package loading, routine folder creation, or run routing across child scripts.
 - Avoid hidden execution-routing layers when the same sequence can be written directly in the master script.
 - Use spaces, not tabs, with 4 spaces per indentation level.
 - Prefer staged transformations with explicitly named intermediate objects over deeply nested pipelines.
@@ -18,13 +19,14 @@ Use this reference when creating or reorganizing scripts in analytical repos, re
 
 Treat master scripts as empirical control panels. Package loading, folder paths, sample or country switches, and execution order should be visible in the master script.
 
+- Make the master script the default place for environment setup, package loading, stable paths, run switches, stable file locations, logging setup, and ordered calls to child scripts.
 - Keep run switches as direct assignments near the top.
 - Keep workspace cleanup simple and visible.
 - Preserve only the control objects needed by the run.
 - Define folder paths directly in the master script.
 - Do not add fallback path discovery, override-preserving switch logic, or hidden routing layers unless the task explicitly requires that flexibility.
 - Source or run child scripts in visible execution order.
-- If the master script calls all child scripts directly, let child scripts check their own run switches when needed.
+- If the master script calls all child scripts directly, keep project-level run switches in the master and put only genuinely script-local switches in child scripts.
 - Do not replace visible path objects with a bundled `paths` list unless the existing workflow already uses that pattern consistently.
 
 ## Analysis Script Standards
@@ -34,6 +36,8 @@ Write analysis scripts as direct empirical construction scripts:
 - define the sample, years, countries, or other target scope
 - construct variables or outputs
 - write generated files
+
+Child scripts should focus on the empirical or analytical task. Keep local choices such as samples, years, countries, classifications, model definitions, and output-specific formatting near the block that uses them. Keep input existence checks in the child script that consumes the file. These checks verify the empirical pipeline; they are not setup boilerplate.
 
 Prefer explicit repeated construction blocks over generic helpers when the helper would hide a substantive choice, such as the weighting variable, sample restriction, classification, grouping variable, or identifying comparison.
 
